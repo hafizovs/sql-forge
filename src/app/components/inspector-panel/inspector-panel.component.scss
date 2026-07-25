@@ -1,0 +1,151 @@
+:host {
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--sf-bg-panel);
+  border-left: 1px solid var(--sf-border);
+  z-index: 10;
+}
+
+.sf-inspector {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.sf-inspector__props {
+  flex: 0 0 42%;
+  min-height: var(--sf-props-min-height, 160px);
+  overflow: auto;
+  padding: 0.85rem;
+  border-bottom: 1px solid var(--sf-border);
+}
+
+.sf-inspector__props h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sf-text-muted);
+}
+
+.sf-inspector__props h3 {
+  margin: 0.85rem 0 0.4rem;
+  font-size: 0.8rem;
+  color: var(--sf-text-muted);
+}
+
+.sf-inspector__block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.sf-inspector__block label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--sf-text-muted);
+}
+
+.sf-inspector__block input[type='text'],
+.sf-inspector__block input[type='number'],
+.sf-inspector__block select {
+  background: var(--sf-bg-panel-elevated);
+  color: var(--sf-text);
+  border: 1px solid var(--sf-border);
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  font: inherit;
+}
+
+.sf-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.45rem !important;
+  color: var(--sf-text) !important;
+}
+
+.sf-check--ro {
+  opacity: 0.75;
+}
+
+.sf-inspector__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sf-btn {
+  border: 1px solid var(--sf-border);
+  background: var(--sf-bg-panel-elevated);
+  color: var(--sf-text);
+  border-radius: 6px;
+  padding: 0.4rem 0.65rem;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.sf-btn--danger {
+  border-color: var(--sf-danger);
+  color: var(--sf-danger);
+}
+
+.sf-inspector__cols {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sf-inspector__cols button {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border: 1px solid var(--sf-border);
+  background: var(--sf-bg-panel-elevated);
+  color: var(--sf-text);
+  border-radius: 6px;
+  padding: 0.4rem 0.55rem;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.sf-muted {
+  color: var(--sf-text-muted);
+}
+
+.sf-inspector__placeholder {
+  margin: 0;
+  color: var(--sf-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.sf-fade {
+  animation: sf-fade-in 180ms ease;
+}
+
+@keyframes sf-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+sf-sql-preview {
+  flex: 1;
+  min-height: 0;
+}

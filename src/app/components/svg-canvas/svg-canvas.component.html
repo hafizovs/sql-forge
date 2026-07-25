@@ -1,0 +1,64 @@
+<div class="sf-canvas-host" [class]="cursorClass()">
+  <svg
+    #svgRoot
+    class="sf-canvas"
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+    (wheel)="onWheel($event)"
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp($event)"
+    (pointercancel)="onPointerUp($event)"
+    (click)="onBackgroundClick($event)"
+  >
+    <defs>
+      <pattern
+        id="sf-grid"
+        [attr.width]="gridSize"
+        [attr.height]="gridSize"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          [attr.d]="'M ' + gridSize + ' 0 L 0 0 0 ' + gridSize"
+          fill="none"
+          stroke="var(--sf-grid)"
+          stroke-width="1"
+        />
+      </pattern>
+    </defs>
+
+    <g class="sf-world" [attr.transform]="worldTransform()">
+      <rect
+        class="sf-canvas__grid"
+        x="-5000"
+        y="-5000"
+        width="10000"
+        height="10000"
+        fill="url(#sf-grid)"
+      />
+
+      <svg:g
+        sf-relation-layer
+        [paths]="schema.relationPaths()"
+        [selectedId]="schema.selectedRelationId()"
+        [linkMode]="ui.linkMode()"
+        (relationClick)="onRelationClick($event)"
+      />
+
+      @for (table of schema.tables(); track table.id) {
+        <svg:g
+          sf-table-node
+          [table]="table"
+          [selected]="schema.selectedTableId() === table.id"
+          [selectedColumnId]="schema.selectedColumnId()"
+          (headerPointerDown)="onHeaderPointerDown($event)"
+          (tableClick)="onTableClick($event)"
+          (columnClick)="onColumnClick($event)"
+          (linkHandlePointerDown)="onLinkHandlePointerDown($event)"
+          (deleteClick)="onDeleteTable($event)"
+        />
+      }
+    </g>
+  </svg>
+</div>

@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  grid-column: 1 / -1;
+}
+
+.sf-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.4rem 1rem;
+  background: var(--sf-bg-panel);
+  border-top: 1px solid var(--sf-border);
+  color: var(--sf-text-muted);
+  font-size: 0.75rem;
+  z-index: 10;
+}

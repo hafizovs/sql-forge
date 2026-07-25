@@ -1,0 +1,14 @@
+<section class="sf-sql" aria-label="SQL">
+  <div class="sf-sql__bar">
+    <h2>{{ i18n.t('sql.title') }}</h2>
+    <button
+      type="button"
+      class="sf-sql__copy"
+      (click)="onCopy()"
+      [attr.aria-label]="i18n.t('sql.copy')"
+    >
+      {{ i18n.t('sql.copy') }}
+    </button>
+  </div>
+  <pre class="sf-sql__pre" [innerHTML]="highlighted()"></pre>
+</section>

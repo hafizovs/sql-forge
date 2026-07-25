@@ -1,0 +1,56 @@
+<header class="sf-toolbar" role="banner">
+  <div class="sf-toolbar__brand">
+    <span class="sf-toolbar__title">{{ i18n.t('app.title') }}</span>
+    <span class="sf-toolbar__subtitle">{{ i18n.t('app.subtitle') }}</span>
+  </div>
+
+  <div class="sf-toolbar__controls">
+    <label class="sf-toolbar__field">
+      <span>{{ i18n.t('toolbar.dialect') }}</span>
+      <select
+        [value]="dialect()"
+        (change)="setDialect($any($event.target).value)"
+        [attr.aria-label]="i18n.t('toolbar.dialect')"
+      >
+        <option value="postgresql">{{ i18n.t('toolbar.postgresql') }}</option>
+        <option value="mysql">{{ i18n.t('toolbar.mysql') }}</option>
+      </select>
+    </label>
+
+    <button
+      type="button"
+      class="sf-btn"
+      (click)="toggleTheme()"
+      [attr.aria-label]="i18n.t('toolbar.theme')"
+    >
+      {{ theme() === 'dark' ? i18n.t('toolbar.themeLight') : i18n.t('toolbar.themeDark') }}
+    </button>
+
+    <button
+      type="button"
+      class="sf-btn"
+      (click)="toggleLocale()"
+      [attr.aria-label]="i18n.t('toolbar.lang')"
+    >
+      {{ locale() === 'ru' ? 'EN' : 'RU' }}
+    </button>
+
+    <button
+      type="button"
+      class="sf-btn"
+      (click)="resetView()"
+      [attr.aria-label]="i18n.t('toolbar.resetView')"
+    >
+      {{ i18n.t('toolbar.resetView') }}
+    </button>
+
+    <button
+      type="button"
+      class="sf-btn sf-btn--accent"
+      (click)="openHelp()"
+      [attr.aria-label]="i18n.t('toolbar.help')"
+    >
+      {{ i18n.t('toolbar.help') }}
+    </button>
+  </div>
+</header>

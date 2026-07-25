@@ -1,0 +1,35 @@
+<svg:g class="sf-relations">
+  @for (path of paths(); track path.relationId) {
+    <path
+      [attr.d]="path.d"
+      class="sf-relation"
+      [class.sf-relation--selected]="path.relationId === selectedId()"
+      fill="none"
+      (click)="onRelationClick(path.relationId, $event)"
+    />
+    <text
+      class="sf-relation__marker"
+      [attr.x]="labelPos(path, 'start').x"
+      [attr.y]="labelPos(path, 'start').y"
+      text-anchor="middle"
+    >
+      {{ path.startLabel }}
+    </text>
+    <text
+      class="sf-relation__marker"
+      [attr.x]="labelPos(path, 'end').x"
+      [attr.y]="labelPos(path, 'end').y"
+      text-anchor="middle"
+    >
+      {{ path.endLabel }}
+    </text>
+  }
+
+  @if (rubberBand(); as preview) {
+    <path
+      [attr.d]="preview.d"
+      class="sf-relation sf-relation--preview"
+      fill="none"
+    />
+  }
+</svg:g>

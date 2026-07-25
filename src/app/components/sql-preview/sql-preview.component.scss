@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
+
+.sf-sql {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--sf-sql-min-height, 180px);
+  height: 100%;
+  background: var(--sf-sql-bg);
+  border-top: 1px solid var(--sf-border);
+}
+
+.sf-sql__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--sf-border);
+}
+
+.sf-sql__bar h2 {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sf-text-muted);
+}
+
+.sf-sql__copy {
+  border: 1px solid var(--sf-accent);
+  background: transparent;
+  color: var(--sf-accent);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.sf-sql__pre {
+  margin: 0;
+  padding: 0.75rem;
+  overflow: auto;
+  flex: 1;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--sf-sql-ident);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+:host ::ng-deep .sf-sql-kw {
+  color: var(--sf-sql-keyword);
+}
+
+:host ::ng-deep .sf-sql-type {
+  color: var(--sf-sql-type);
+}

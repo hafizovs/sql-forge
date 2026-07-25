@@ -1,0 +1,52 @@
+<aside class="sf-tools" aria-label="Tools">
+  <button
+    type="button"
+    class="sf-tools__create"
+    (click)="createTable()"
+    [attr.aria-label]="i18n.t('tools.createTable')"
+  >
+    {{ i18n.t('tools.createTable') }}
+  </button>
+
+  <section class="sf-tools__section">
+    <h2>{{ i18n.t('tools.tables') }}</h2>
+    <ul class="sf-tools__list" role="listbox">
+      @for (table of schema.tables(); track table.id) {
+        <li
+          class="sf-tools__item"
+          [class.sf-tools__item--active]="schema.selectedTableId() === table.id"
+          role="option"
+          tabindex="0"
+          [attr.aria-selected]="schema.selectedTableId() === table.id"
+          (click)="selectTable(table.id)"
+          (keydown)="onTableKeydown($event, table.id)"
+        >
+          <span class="sf-tools__name">{{ table.name }}</span>
+          <button
+            type="button"
+            class="sf-tools__delete"
+            (click)="deleteTable(table.id, $event)"
+            [attr.aria-label]="i18n.t('tools.deleteTable')"
+          >
+            ×
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="sf-tools__section">
+    <h2>{{ i18n.t('tools.presets') }}</h2>
+    <div class="sf-tools__presets">
+      @for (preset of presets; track preset) {
+        <button
+          type="button"
+          class="sf-tools__preset"
+          (click)="loadPreset(preset)"
+        >
+          {{ presetLabel(preset) }}
+        </button>
+      }
+    </div>
+  </section>
+</aside>

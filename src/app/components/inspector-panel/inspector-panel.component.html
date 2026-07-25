@@ -1,0 +1,141 @@
+<aside class="sf-inspector" aria-label="Inspector">
+  <section class="sf-inspector__props">
+    <h2>{{ i18n.t('inspector.properties') }}</h2>
+
+    @switch (kind()) {
+      @case ('table') {
+        @if (table(); as t) {
+          <div class="sf-inspector__block sf-fade">
+            <label>
+              <span>{{ i18n.t('inspector.tableName') }}</span>
+              <input
+                type="text"
+                [value]="t.name"
+                (change)="onTableName($any($event.target).value)"
+              />
+            </label>
+            <div class="sf-inspector__actions">
+              <button type="button" class="sf-btn" (click)="addColumn()">
+                {{ i18n.t('inspector.addColumn') }}
+              </button>
+              <button type="button" class="sf-btn sf-btn--danger" (click)="deleteTable()">
+                {{ i18n.t('inspector.deleteTable') }}
+              </button>
+            </div>
+            <h3>{{ i18n.t('inspector.columns') }}</h3>
+            <ul class="sf-inspector__cols">
+              @for (col of t.columns; track col.id) {
+                <li>
+                  <button type="button" (click)="selectColumn(col.id)">
+                    {{ col.name }}
+                    <span class="sf-muted">{{ col.dataType }}</span>
+                  </button>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      }
+      @case ('column') {
+        @if (column(); as c) {
+          <div class="sf-inspector__block sf-fade">
+            <label>
+              <span>{{ i18n.t('inspector.columnName') }}</span>
+              <input
+                type="text"
+                [value]="c.name"
+                (change)="onColumnName($any($event.target).value)"
+              />
+            </label>
+            <label>
+              <span>{{ i18n.t('inspector.dataType') }}</span>
+              <select
+                [value]="c.dataType"
+                (change)="onDataType($any($event.target).value)"
+              >
+                @for (dt of dataTypes; track dt) {
+                  <option [value]="dt">{{ typeLabel(dt) }}</option>
+                }
+              </select>
+            </label>
+            <label>
+              <span>{{ i18n.t('inspector.length') }}</span>
+              <input
+                type="number"
+                min="1"
+                [disabled]="c.dataType !== 'VARCHAR'"
+                [value]="c.length ?? 255"
+                (change)="onLength($any($event.target).value)"
+              />
+            </label>
+            <label class="sf-check">
+              <input
+                type="checkbox"
+                [checked]="c.primaryKey"
+                (change)="onFlag('primaryKey', $any($event.target).checked)"
+              />
+              {{ i18n.t('inspector.primaryKey') }}
+            </label>
+            <label class="sf-check">
+              <input
+                type="checkbox"
+                [checked]="c.notNull"
+                (change)="onFlag('notNull', $any($event.target).checked)"
+              />
+              {{ i18n.t('inspector.notNull') }}
+            </label>
+            <label class="sf-check">
+              <input
+                type="checkbox"
+                [checked]="c.unique"
+                (change)="onFlag('unique', $any($event.target).checked)"
+              />
+              {{ i18n.t('inspector.unique') }}
+            </label>
+            <label class="sf-check sf-check--ro">
+              <input type="checkbox" [checked]="c.foreignKey" disabled />
+              {{ i18n.t('inspector.foreignKey') }}
+            </label>
+            <button type="button" class="sf-btn sf-btn--danger" (click)="deleteColumn()">
+              {{ i18n.t('inspector.deleteColumn') }}
+            </button>
+          </div>
+        }
+      }
+      @case ('relation') {
+        @if (relation(); as r) {
+          <div class="sf-inspector__block sf-fade">
+            <p>
+              <span class="sf-muted">{{ i18n.t('inspector.relationFrom') }}</span>
+              {{ relationFromLabel() }}
+            </p>
+            <p>
+              <span class="sf-muted">{{ i18n.t('inspector.relationTo') }}</span>
+              {{ relationToLabel() }}
+            </p>
+            <label>
+              <span>{{ i18n.t('inspector.relationKind') }}</span>
+              <select
+                [value]="r.kind"
+                (change)="onRelationKind($any($event.target).value)"
+              >
+                <option value="one-to-many">{{ i18n.t('relation.oneToMany') }}</option>
+                <option value="one-to-one">{{ i18n.t('relation.oneToOne') }}</option>
+              </select>
+            </label>
+            <button type="button" class="sf-btn sf-btn--danger" (click)="deleteRelation()">
+              {{ i18n.t('inspector.deleteRelation') }}
+            </button>
+          </div>
+        }
+      }
+      @default {
+        <p class="sf-inspector__placeholder sf-fade">
+          {{ i18n.t('inspector.placeholder') }}
+        </p>
+      }
+    }
+  </section>
+
+  <sf-sql-preview [sql]="schema.sqlText()" (copy)="copySql()" />
+</aside>

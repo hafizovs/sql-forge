@@ -1,0 +1,32 @@
+.sf-relation {
+  stroke: var(--sf-relation);
+  stroke-width: 2;
+  cursor: pointer;
+  pointer-events: stroke;
+  transition: stroke 160ms ease;
+}
+
+.sf-relation:hover {
+  stroke: var(--sf-accent-2);
+}
+
+.sf-relation--selected {
+  stroke: var(--sf-relation-active);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--sf-relation-active) 60%, transparent));
+}
+
+.sf-relation--preview {
+  stroke: var(--sf-accent);
+  stroke-dasharray: 6 4;
+  pointer-events: none;
+}
+
+.sf-relation__marker {
+  fill: var(--sf-marker);
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  pointer-events: none;
+  user-select: none;
+}
