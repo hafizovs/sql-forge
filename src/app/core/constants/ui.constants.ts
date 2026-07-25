@@ -1,0 +1,6 @@
+export const TOOLS_PANEL_WIDTH_PX = 260;
+export const INSPECTOR_PANEL_WIDTH_PX = 380;
+export const TOAST_DURATION_MS = 2000;
+export const RESPONSIVE_BREAKPOINT_PX = 1100;
+export const SQL_PREVIEW_MIN_HEIGHT_PX = 180;
+export const PROPERTIES_MIN_HEIGHT_PX = 160;
