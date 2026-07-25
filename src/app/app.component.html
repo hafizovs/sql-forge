@@ -1,0 +1,11 @@
+<div class="sf-app" [attr.data-theme]="ui.theme()">
+  <sf-toolbar />
+  <sf-tools-panel />
+  <sf-svg-canvas />
+  <sf-inspector-panel />
+  <sf-status-bar />
+  @if (ui.helpOpen()) {
+    <sf-help-drawer />
+  }
+  <sf-toast />
+</div>

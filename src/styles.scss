@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+:root,
+[data-theme='dark'] {
+  --sf-bg-deep: #0b0f14;
+  --sf-bg-panel: #111827;
+  --sf-bg-panel-elevated: #1a2332;
+  --sf-bg-canvas: #0d1117;
+  --sf-bg-table: #161b22;
+  --sf-bg-table-header: #1f2937;
+  --sf-border: #30363d;
+  --sf-border-strong: #484f58;
+  --sf-text: #e6edf3;
+  --sf-text-muted: #8b949e;
+  --sf-accent: #3ecf8e;
+  --sf-accent-2: #58a6ff;
+  --sf-pk: #f0c14b;
+  --sf-fk: #58a6ff;
+  --sf-danger: #f85149;
+  --sf-grid: rgba(48, 54, 61, 0.55);
+  --sf-relation: #8b949e;
+  --sf-relation-active: #3ecf8e;
+  --sf-sql-bg: #0d1117;
+  --sf-sql-keyword: #ff7b72;
+  --sf-sql-type: #79c0ff;
+  --sf-sql-ident: #e6edf3;
+  --sf-focus-ring: #3ecf8e;
+  --sf-marker: #c9d1d9;
+  --sf-tools-width: 260px;
+  --sf-inspector-width: 380px;
+  --sf-sql-min-height: 180px;
+  --sf-props-min-height: 160px;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --sf-bg-deep: #f6f8fa;
+  --sf-bg-panel: #ffffff;
+  --sf-bg-panel-elevated: #f0f3f6;
+  --sf-border: #d0d7de;
+  --sf-border-strong: #afb8c1;
+  --sf-text: #1f2328;
+  --sf-text-muted: #656d76;
+  color-scheme: light;
+}
+
+body {
+  font-family: 'IBM Plex Sans', 'Space Grotesk', sans-serif;
+  background: var(--sf-bg-deep);
+  color: var(--sf-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--sf-focus-ring);
+  outline-offset: 2px;
+}

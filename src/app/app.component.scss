@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sf-app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: var(--sf-tools-width) 1fr var(--sf-inspector-width);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--sf-bg-deep);
+  color: var(--sf-text);
+  font-family: 'IBM Plex Sans', 'Space Grotesk', sans-serif;
+}
+
+sf-toolbar {
+  grid-column: 1 / -1;
+}
+
+sf-status-bar {
+  grid-column: 1 / -1;
+}
+
+sf-svg-canvas {
+  min-height: 0;
+  min-width: 0;
+}
+
+@media (max-width: 1099px) {
+  .sf-app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto minmax(360px, 1fr) minmax(280px, auto) auto;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  sf-tools-panel,
+  sf-inspector-panel {
+    border: none;
+    border-bottom: 1px solid var(--sf-border);
+    max-height: 280px;
+  }
+}
