@@ -1,0 +1,92 @@
+<svg:g
+  class="sf-table"
+  [class.sf-table--selected]="selected()"
+  [attr.transform]="'translate(' + table().x + ' ' + table().y + ')'"
+  [attr.tabindex]="0"
+  role="group"
+  [attr.aria-label]="table().name"
+  (click)="onTableClick($event)"
+>
+  <rect
+    class="sf-table__body"
+    [attr.width]="width"
+    [attr.height]="height()"
+    [attr.rx]="radius"
+    [attr.ry]="radius"
+  />
+  <rect
+    class="sf-table__header"
+    [attr.width]="width"
+    [attr.height]="headerHeight"
+    [attr.rx]="radius"
+    [attr.ry]="radius"
+    (pointerdown)="onHeaderPointerDown($event)"
+  />
+  <rect
+    class="sf-table__header-cover"
+    y="12"
+    [attr.width]="width"
+    [attr.height]="headerHeight - 12"
+    (pointerdown)="onHeaderPointerDown($event)"
+  />
+  <text class="sf-table__title" x="12" [attr.y]="headerHeight / 2 + 5">
+    {{ table().name }}
+  </text>
+  <text
+    class="sf-table__delete"
+    [attr.x]="width - 14"
+    [attr.y]="headerHeight / 2 + 5"
+    text-anchor="middle"
+    (click)="onDelete($event)"
+    [attr.aria-label]="i18n.t('canvas.deleteTable')"
+  >
+    ×
+  </text>
+
+  @for (col of table().columns; track col.id; let i = $index) {
+    <g
+      class="sf-table__row"
+      [class.sf-table__row--selected]="selectedColumnId() === col.id"
+      [attr.transform]="'translate(0 ' + rowY(i) + ')'"
+      (click)="onColumnClick(col.id, $event)"
+    >
+      <rect
+        class="sf-table__row-bg"
+        [attr.width]="width"
+        [attr.height]="rowHeight"
+      />
+      @if (col.primaryKey) {
+        <text class="sf-badge sf-badge--pk" x="8" y="18">
+          {{ i18n.t('badge.pk') }}
+        </text>
+      }
+      @if (col.foreignKey) {
+        <text
+          class="sf-badge sf-badge--fk"
+          [attr.x]="col.primaryKey ? 34 : 8"
+          y="18"
+        >
+          {{ i18n.t('badge.fk') }}
+        </text>
+      }
+      <text
+        class="sf-table__col-name"
+        [attr.x]="col.primaryKey || col.foreignKey ? 58 : 10"
+        y="18"
+      >
+        {{ col.name }}
+      </text>
+      <text class="sf-table__col-type" [attr.x]="width - 28" y="18" text-anchor="end">
+        {{ col.dataType }}
+      </text>
+      <circle
+        class="sf-link-handle"
+        [attr.cx]="width - 10"
+        [attr.cy]="rowHeight / 2"
+        [attr.r]="handleRadius"
+        [attr.aria-label]="i18n.t('canvas.linkHandle')"
+        (pointerdown)="onLinkPointerDown(col.id, $event)"
+      />
+    </g>
+  }
+</svg:g>

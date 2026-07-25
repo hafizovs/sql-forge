@@ -1,0 +1,30 @@
+:host {
+  position: fixed;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  z-index: 40;
+  pointer-events: none;
+}
+
+.sf-toast {
+  background: var(--sf-bg-panel-elevated);
+  color: var(--sf-text);
+  border: 1px solid var(--sf-accent);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  animation: sf-toast-in 200ms ease;
+}
+
+@keyframes sf-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

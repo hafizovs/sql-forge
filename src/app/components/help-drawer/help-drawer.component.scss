@@ -1,0 +1,87 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.sf-help-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+}
+
+.sf-help {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(380px, 100vw);
+  height: 100%;
+  background: var(--sf-bg-panel);
+  border-left: 1px solid var(--sf-border);
+  padding: 1rem 1.1rem;
+  overflow: auto;
+  pointer-events: auto;
+  color: var(--sf-text);
+  animation: sf-slide 180ms ease;
+}
+
+.sf-help__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sf-help__header h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.sf-help__close {
+  border: none;
+  background: transparent;
+  color: var(--sf-text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.sf-help__tips {
+  padding-left: 1.1rem;
+  color: var(--sf-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.sf-help__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.sf-help__table th,
+.sf-help__table td {
+  text-align: left;
+  padding: 0.35rem 0.25rem;
+  border-bottom: 1px solid var(--sf-border);
+  vertical-align: top;
+}
+
+.sf-help__table th {
+  width: 42%;
+  color: var(--sf-accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+@keyframes sf-slide {
+  from {
+    transform: translateX(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

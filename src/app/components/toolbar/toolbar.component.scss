@@ -1,0 +1,89 @@
+:host {
+  display: block;
+  grid-column: 1 / -1;
+}
+
+.sf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  background: var(--sf-bg-panel);
+  border-bottom: 1px solid var(--sf-border);
+  z-index: 10;
+}
+
+.sf-toolbar__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.sf-toolbar__title {
+  font-family: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sf-accent);
+  line-height: 1.1;
+}
+
+.sf-toolbar__subtitle {
+  font-size: 0.75rem;
+  color: var(--sf-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sf-toolbar__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sf-toolbar__field {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--sf-text-muted);
+}
+
+.sf-toolbar__field select {
+  background: var(--sf-bg-panel-elevated);
+  color: var(--sf-text);
+  border: 1px solid var(--sf-border);
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+}
+
+.sf-btn {
+  background: var(--sf-bg-panel-elevated);
+  color: var(--sf-text);
+  border: 1px solid var(--sf-border);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.sf-btn:hover {
+  border-color: var(--sf-border-strong);
+}
+
+.sf-btn:focus-visible {
+  outline: 2px solid var(--sf-focus-ring);
+  outline-offset: 2px;
+}
+
+.sf-btn--accent {
+  border-color: var(--sf-accent);
+  color: var(--sf-accent);
+}

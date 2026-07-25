@@ -1,0 +1,33 @@
+<div class="sf-help-backdrop" (click)="close()"></div>
+<aside class="sf-help" role="dialog" [attr.aria-label]="i18n.t('help.title')">
+  <header class="sf-help__header">
+    <h2>{{ i18n.t('help.title') }}</h2>
+    <button
+      type="button"
+      class="sf-help__close"
+      (click)="close()"
+      [attr.aria-label]="i18n.t('help.close')"
+    >
+      ×
+    </button>
+  </header>
+  <p>{{ i18n.t('help.intro') }}</p>
+  <ul class="sf-help__tips">
+    <li>{{ i18n.t('help.create') }}</li>
+    <li>{{ i18n.t('help.drag') }}</li>
+    <li>{{ i18n.t('help.pan') }}</li>
+    <li>{{ i18n.t('help.zoom') }}</li>
+    <li>{{ i18n.t('help.link') }}</li>
+  </ul>
+  <h3>{{ i18n.t('help.hotkeys') }}</h3>
+  <table class="sf-help__table">
+    <tbody>
+      @for (row of hotkeys; track row.keys) {
+        <tr>
+          <th>{{ row.keys }}</th>
+          <td>{{ i18n.t(row.action) }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</aside>
