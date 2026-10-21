@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "sql-forge-auto": {
+    "sql-forge": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -63,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "sql-forge-auto:build:production"
+              "buildTarget": "sql-forge:build:production"
             },
             "development": {
-              "buildTarget": "sql-forge-auto:build:development"
+              "buildTarget": "sql-forge:build:development"
             }
           },
           "defaultConfiguration": "development"

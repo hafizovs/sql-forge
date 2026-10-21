@@ -4,15 +4,15 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
-import { HelpDrawerComponent } from './components/help-drawer/help-drawer.component';
-import { InspectorPanelComponent } from './components/inspector-panel/inspector-panel.component';
-import { StatusBarComponent } from './components/status-bar/status-bar.component';
-import { SvgCanvasComponent } from './components/svg-canvas/svg-canvas.component';
-import { ToastComponent } from './components/toast/toast.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { ToolsPanelComponent } from './components/tools-panel/tools-panel.component';
-import { HotkeysService } from './services/hotkeys.service';
-import { UiStore } from './state/ui.store';
+import { HelpDrawerComponent } from './shared/help-drawer/help-drawer.component';
+import { InspectorPanelComponent } from './features/inspector/inspector-panel/inspector-panel.component';
+import { StatusBarComponent } from './core/layout/status-bar/status-bar.component';
+import { SvgCanvasComponent } from './features/canvas/svg-canvas/svg-canvas.component';
+import { ToastComponent } from './shared/toast/toast.component';
+import { ToolbarComponent } from './core/layout/toolbar/toolbar.component';
+import { ToolsPanelComponent } from './features/inspector/tools-panel/tools-panel.component';
+import { HotkeysService } from './core/hotkeys.service';
+import { UiStore } from './core/ui/ui.store';
 
 @Component({
   selector: 'sf-root',

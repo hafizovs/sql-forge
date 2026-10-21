@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { SchemaSnapshot } from '../../models/schema.types';
+import type { SchemaSnapshot } from '../../core/models/schema.types';
 import { generateSql } from './sql-builder';
 
 const usersOnly: SchemaSnapshot = {

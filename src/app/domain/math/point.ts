@@ -1,4 +1,4 @@
-import type { Point } from '../../models/schema.types';
+import type { Point } from '../../core/models/schema.types';
 
 export function addPoints(a: Point, b: Point): Point {
   return { x: a.x + b.x, y: a.y + b.y };

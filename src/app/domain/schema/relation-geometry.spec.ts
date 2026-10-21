@@ -4,7 +4,7 @@ import {
   TABLE_HEADER_HEIGHT,
   TABLE_WIDTH,
 } from '../../core/constants/canvas.constants';
-import type { Table } from '../../models/schema.types';
+import type { Table } from '../../core/models/schema.types';
 import {
   buildRelationPath,
   cardinalityLabels,

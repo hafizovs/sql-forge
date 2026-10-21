@@ -1,4 +1,4 @@
-import type { Table } from '../../models/schema.types';
+import type { Table } from '../../core/models/schema.types';
 
 export function isBlankName(name: string): boolean {
   return name.trim().length === 0;

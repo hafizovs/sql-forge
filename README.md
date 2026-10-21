@@ -1,3 +1,7 @@
+## Live demo
+
+https://hafizovs.github.io/sql-forge/
+
 # SQL-Forge
 
 Интерактивный SVG-конструктор баз данных на Angular (zoneless, Signals). Таблицы и связи на холсте, live DDL для PostgreSQL / MySQL.

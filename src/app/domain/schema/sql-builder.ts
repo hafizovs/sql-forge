@@ -8,7 +8,7 @@ import type {
   SchemaSnapshot,
   SqlDialect,
   Table,
-} from '../../models/schema.types';
+} from '../../core/models/schema.types';
 
 export function quoteIdent(name: string, dialect: SqlDialect): string {
   if (dialect === 'postgresql') {

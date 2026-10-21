@@ -1,4 +1,4 @@
-import type { SchemaPresetId, SchemaSnapshot } from '../../models/schema.types';
+import type { SchemaPresetId, SchemaSnapshot } from '../models/schema.types';
 
 export const SCHEMA_PRESETS: Record<SchemaPresetId, SchemaSnapshot> = {
   empty: {

@@ -4,7 +4,7 @@ import {
   TABLE_PADDING_BOTTOM,
   TABLE_WIDTH,
 } from '../../core/constants/canvas.constants';
-import type { Table } from '../../models/schema.types';
+import type { Table } from '../../core/models/schema.types';
 
 export function tableHeight(columnCount: number): number {
   return (

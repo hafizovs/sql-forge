@@ -12,7 +12,7 @@ import type {
   RelationKind,
   RelationPath,
   Table,
-} from '../../models/schema.types';
+} from '../../core/models/schema.types';
 import { round2 } from '../math/point';
 import { columnCenterY, columnIndexById } from './table-metrics';
 
