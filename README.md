@@ -4,45 +4,66 @@ https://hafizovs.github.io/sql-forge/
 
 # SQL-Forge
 
-Интерактивный SVG-конструктор баз данных на Angular (zoneless, Signals). Таблицы и связи на холсте, live DDL для PostgreSQL / MySQL.
+Interactive SVG database designer on Angular (zoneless, Signals). Tables and relationships on a canvas, with live DDL for PostgreSQL / MySQL.
 
-Спецификация: [`../docs`](../docs).
+Specification: [`../docs`](../docs).
 
-## Запуск
+## About
+
+SQL-Forge is an interactive SVG database designer on Angular with zoneless change detection and Signals. You place tables and relationships on a canvas and read live DDL for PostgreSQL or MySQL. The workbench is three panes: tools, the SVG canvas, and an inspector with SQL.
+
+## Capabilities
+
+- Three-pane workbench: tools | SVG canvas | inspector + SQL
+- Drag tables, pan with the middle button, zoom with the wheel toward the cursor
+- Relationships as cubic Beziers with `1` / `∞` markers
+- Link tool (a column’s link handle onto another column)
+- Presets: blog, ecommerce, auth, empty
+- RU/EN, theme toggle, and hotkeys
+
+## Functionality
+
+- Create a table with `N`, and delete a table or relationship with Delete or Backspace
+- Drag tables, pan with the middle mouse button, and zoom toward the cursor; reset the view with Ctrl/Cmd+0
+- Start a link from a column handle and drop it on a column
+- Switch PostgreSQL and MySQL with `D`, and copy SQL with Ctrl/Cmd+Shift+C
+- Load a blog, ecommerce, auth, or empty preset; toggle language (`G`) and theme (`T`); `?` opens help and Esc clears the selection, an in-progress link, or help
+
+## Start
 
 ```bash
 npm install
 npm start
 ```
 
-Откройте `http://localhost:4200/`.
+Open `http://localhost:4200/`.
 
-## Тесты
+## Tests
 
 ```bash
 npm test
 ```
 
-## Возможности
+## Features
 
-- Трёхпанельный workbench: tools | SVG canvas | inspector + SQL
-- Drag таблиц, pan средней кнопкой, zoom колесом к курсору
-- Связи — cubic Bezier с маркерами `1` / `∞`
-- Инструмент «Связать» (link-handle колонки → колонка)
-- Пресеты: blog, ecommerce, auth, empty
+- Three-pane workbench: tools | SVG canvas | inspector + SQL
+- Drag tables, middle-button pan, wheel zoom toward the cursor
+- Relationships as cubic Beziers with `1` / `∞` markers
+- Link tool (column link-handle → column)
+- Presets: blog, ecommerce, auth, empty
 - i18n RU/EN, theme toggle, hotkeys
 
 ## Hotkeys
 
-| Клавиша | Действие |
+| Key | Action |
 |---------|----------|
-| `N` | Создать таблицу |
-| `Delete` / `Backspace` | Удалить таблицу / связь |
-| `Ctrl/Cmd+Shift+C` | Копировать SQL |
-| `Ctrl/Cmd+0` | Сброс вида |
+| `N` | Create a table |
+| `Delete` / `Backspace` | Delete a table / relationship |
+| `Ctrl/Cmd+Shift+C` | Copy SQL |
+| `Ctrl/Cmd+0` | Reset the view |
 | `Ctrl/Cmd+=` / `-` | Zoom in / out |
-| `G` | Язык RU↔EN |
-| `T` | Тема |
-| `D` | Диалект PG↔MySQL |
-| `?` | Справка |
-| `Esc` | Сброс selection / link / help |
+| `G` | Language RU↔EN |
+| `T` | Theme |
+| `D` | Dialect PG↔MySQL |
+| `?` | Help |
+| `Esc` | Clear selection / link / help |
